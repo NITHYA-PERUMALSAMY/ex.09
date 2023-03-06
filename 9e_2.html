@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+<title>9e_2.html</title>
+</head>
+<body ng-app="myapp">
+<h1>Angular JS Routing - My Profile</h1>
+<a href="#!pd">Personal Details</a><br>
+<a href="#!ad">Academic Details</a><br>
+<a href="#!pro">Project Details</a><br>
+<a href="#!login">Login</a><br>
+<a href="#!signup">Sign Up</a><br>
+<div ng-view></div>
+<script>
+    const app = angular.module("myapp", ["ngRoute"]);
+    app.config(function($routeProvider){
+        $routeProvider
+        .when('/pd',{
+            template: "<h2>Personal details</h2><br>Name: NITHYA<br><br>Age: 20<br><br>Gender: FEMALE<br><br>Country: INDIA<br><br>Institution: KARUNYA INSTITUTE OF TECHNOLOGY AND SCIENCES" 
+        })
+        .when('/ad',{
+            template: "<h2>Academic Details</h2><br> 10th marks: 95% <br><br>12th marks: 90%<br><br>Btech CGPA: 8.5<br><br>"
+        })
+        .when('/pro',{
+            template: "<h2>Projects/Internship Details</h2><br> Projects: Handwritten Digit Recognition using Deep Learning, Face Recognition Bot<br><br>Internships: Data Analytics(IBM Skillsbuild), CUBESAT for Earth Observation using Matlab(Brahmastra)<br><br>" 
+        })
+        .when('/login',{
+            template: "<h2>Login</h2><br> Username <input type='text' required><br><br> Password <input type='password' required><br><br> <button value='submit'>Submit</button>"
+        })
+        .when('/signup',{
+            template: "<h2>Sign Up</h2> Email <input type='email' required><br><br> Username <input type='text' required><br><br> Password <input type='password' required><br><br> <button value='submit'>Submit</button>"
+        });
+    });
+</script>
+</body>
+</html>
